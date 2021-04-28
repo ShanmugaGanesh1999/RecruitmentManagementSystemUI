@@ -1,0 +1,14 @@
+<div class="otp-container">
+  <h2 mat-dialog-title>OTP Verification</h2>
+  <mat-dialog-content class="otp">
+    <span>Enter the otp sent to your mail for verification</span>
+    <form [formGroup]="signUpOtpForm" (keydown)="keyDownFunction($event)">
+      <mat-form-field>
+        <input matInput placeholder="Enter OTP" name="otp" formControlName="otp" required>
+      </mat-form-field>
+      <mat-dialog-actions>
+        <button mat-raised-button mat-dialog-close color="primary" class="btn" (click)="onVerifyOtp()">Verify</button>
+      </mat-dialog-actions>
+    </form>
+  </mat-dialog-content>
+</div>

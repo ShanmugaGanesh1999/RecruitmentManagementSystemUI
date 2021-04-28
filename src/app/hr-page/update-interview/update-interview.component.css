@@ -1,0 +1,26 @@
+.btn {
+  background-color: #0e3a45;
+}
+
+::ng-deep.main-background mat-dialog-container {
+  background: linear-gradient(0deg,
+      #4795a0,
+      #4795a0),
+    no-repeat center !important;
+  padding: 0px !important;
+}
+::ng-deep.main-background .mat-dialog-content {
+  display: contents !important;
+  margin: 0px !important;
+}
+
+
+.main-background {
+  color: #0e3a45;
+  font-weight: 500;
+}
+
+.container{
+    padding:40px;
+    width: 500px;
+}

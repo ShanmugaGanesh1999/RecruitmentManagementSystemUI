@@ -1,0 +1,22 @@
+<div class="signup-component">
+    <h2 mat-dialog-title>Enter New Password</h2>
+    <mat-dialog-content class="sign-up">
+        <form [formGroup]="otpPassword">
+            <mat-form-field>
+                <input matInput placeholder="OTP" type="text" formControlName="oneTimePwd" name="otp" required />
+            </mat-form-field><br />
+            <mat-form-field>
+                <input matInput placeholder="Password" type="password" formControlName="password" name="password"
+                    required />
+            </mat-form-field>
+            <mat-dialog-actions class="signup-btn">
+                <button mat-raised-button mat-dialog-close color="primary" (click)="openDialog()">
+                    Reset
+                </button>
+                <button mat-raised-button mat-dialog-close color="primary">
+                    Close
+                </button>
+            </mat-dialog-actions>
+        </form>
+    </mat-dialog-content>
+</div>

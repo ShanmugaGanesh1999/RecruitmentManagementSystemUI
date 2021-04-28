@@ -1,0 +1,54 @@
+<div class="feedback-container">
+  <h2 mat-dialog-title>FeedBack</h2>
+  <mat-dialog-content class="feedback">
+    <span>Enter the otp sent to your mail for verification</span>
+    <form class="example-form" [formGroup]="feedbackForm">
+      <mat-selection-list #feedback [multiple]="false">
+        <mat-list-option *ngFor="let feed of feedbackList" [value]="feed[1]">
+          <mat-icon matTooltip="FeedBack">near_me</mat-icon>
+          &nbsp;&nbsp;&nbsp;&nbsp; {{ feed[0] }}
+        </mat-list-option>
+      </mat-selection-list>
+      <br />
+      <div>
+        <mat-slider
+          thumbLabel
+          formControlName="ratingSlider"
+          [disabled]="true"
+          tickInterval="1"
+          min="0"
+          max="10"
+        >
+        </mat-slider>
+      </div>
+      <p>
+        Feedback by : &nbsp;
+        <i class="show">{{ feedback.selectedOptions.selected[0]?.value }}</i>
+        &nbsp; - &nbsp; Average Rating : &nbsp; <i class="show">{{ rating }}</i>
+      </p>
+      <mat-dialog-actions>
+        <div class="add-btn">
+          <button
+            mat-fab
+            mat-raised-button
+            class="add-btn-1"
+            (click)="onReject()"
+          >
+            <mat-icon matTooltip="Candidate Rejected">assignment_late</mat-icon>
+          </button>
+          &nbsp;
+          <button
+            mat-fab
+            mat-raised-button
+            class="add-btn-1"
+            (click)="onSelect()"
+          >
+            <mat-icon matTooltip="Candidate Selected"
+              >assignment_turned_in</mat-icon
+            >
+          </button>
+        </div>
+      </mat-dialog-actions>
+    </form>
+  </mat-dialog-content>
+</div>

@@ -1,0 +1,16 @@
+.wrapper {
+  display: flex;
+  width: 100%;
+  position: fixed;
+  justify-content: center;
+  z-index: 1100;
+  align-items: center;
+  background: #d8d8d899;
+  height: calc(120vh);
+}
+.inner {
+  padding: 12px;
+}
+.mat-spinner-color::ng-deep circle {
+  stroke: #2b9ebb !important;
+}

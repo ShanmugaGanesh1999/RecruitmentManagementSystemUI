@@ -1,0 +1,22 @@
+<div class="signup-component">
+  <h2 mat-dialog-title>Sign Up - Interviewer</h2>
+  <mat-dialog-content class="sign-up">
+    <form [formGroup]="signUpForm" (keydown)="keyDownFunction($event)">
+      <mat-form-field>
+        <input matInput placeholder="Name" name="name" formControlName="name" required /> </mat-form-field><br />
+      <mat-form-field>
+        <input matInput placeholder="Email" name="emailId" formControlName="emailId" required /> </mat-form-field><br />
+      <mat-form-field>
+        <input matInput placeholder="Password" type="password" formControlName="password" name="password" required />
+      </mat-form-field>
+      <mat-dialog-actions class="signup-btn">
+        <button mat-raised-button mat-dialog-close color="primary" (click)="openDialog()" class="btn">
+          Create
+        </button>
+        <button mat-raised-button mat-dialog-close class="btn">
+          Close
+        </button>
+      </mat-dialog-actions>
+    </form>
+  </mat-dialog-content>
+</div>

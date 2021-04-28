@@ -1,0 +1,27 @@
+<div class="main-background">
+  <fieldset disabled="disabled">
+    <legend>
+      <h2>Candidate Details</h2>
+    </legend>
+    <div class="display">Name: <input type="text" value="{{candidateDetails.name}}" class="ml-2"></div>
+    <div class="display ml">EmailId:<input type="text" value="{{candidateDetails.emailId}}" class="ml-2"></div>
+    <br><br>
+    <div class="display">Phone:<input type="text" value="{{candidateDetails.mobileNo}}" class="ml-2"></div>
+    <div class="display ml">Organization:<input type="text" value="{{candidateDetails.organization}}" class="ml-2">
+    </div>
+    <br><br>
+    <div class="display">Domain:<input type="text" value="{{candidateDetails.domain}}" class="ml-2"></div>
+    <div class="display ml">Meeting Link:<input type="text" value="{{interviewDetails.meetLink}}" class="ml-2"></div>
+    <br><br>
+    <div class="display">Timing:<input type="text" value="{{interviewDetails.timing}}" class="ml-2"></div>
+    <div class="display ml">Resume:<input type="text" value="{{candidateDetails.resume}}" class="ml-2"></div><br><br>
+    <div>
+      <span>Interviewers</span>
+      <ul *ngFor="let interviewerName of interviewersName; index as i" style="list-style-type:none;">
+        <li>
+          <mat-icon>face</mat-icon> {{interviewerName}} - {{interviewersEmail[i]}}
+        </li>
+      </ul>
+    </div>
+  </fieldset>
+</div>

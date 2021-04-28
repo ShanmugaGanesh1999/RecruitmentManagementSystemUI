@@ -1,0 +1,55 @@
+.example-form {
+  min-width: 350px;
+  max-width: 500px;
+  max-height: 450px;
+  min-height: 300px;
+  width: 100%;
+}
+
+.add-btn-1 {
+  background-color: #0e3a45;
+  margin-left: 40px;
+  margin-right: 50px;
+  color: #ccdbcc;
+  border-width: revert;
+}
+
+.add-btn {
+  margin-left: 45px;
+  text-align: center;
+}
+
+mat-slider {
+  width: 300px;
+}
+
+.feedback-container {
+  margin: 5px;
+  padding: 30px;
+}
+
+.show {
+  color: #0e3a45;
+  font-size: 16px;
+  font-family: inherit;
+  font-weight:500;
+}
+
+::ng-deep.main-background mat-dialog-container {
+  background: linear-gradient(0deg,
+      #4795a0,
+      #4795a0),
+    no-repeat center !important;
+  padding: 0px !important;
+}
+
+::ng-deep.main-background .mat-dialog-content {
+  display: contents !important;
+  margin: 0px !important;
+}
+
+
+.main-background {
+  color: #0e3a45;
+  font-weight: 500;
+}

@@ -1,0 +1,151 @@
+<div class="body">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <img
+        style="font-size: small"
+        _ngcontent-ein-c54=""
+        src="https://www.pockethrms.com/assets/images/features/recruitment.png"
+        alt="Angular Material icon"
+        class="angular-material-logo"
+      />&nbsp;&nbsp;
+      <div>
+        <a>
+          <span style="font-family: 'Times New Roman', Times, serif"
+            >Recruitment System</span
+          >
+        </a>
+        <a class="logout">
+          <mat-icon class="icon">power_settings_new</mat-icon>
+          <span class="span-logout" (click)="onClickLogout()">Logout</span>
+        </a>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <div class="content">
+    <h1 class="heading">Candidates Interview Schedule - HR</h1>
+    <form [formGroup]="candidateSearchForm">
+      <mat-form-field class="search-input">
+        <mat-label style="color: #1e86a1">Search candidate name</mat-label>
+        <input
+          matInput
+          formControlName="searchInput"
+          (keyup)="searchTerm$.next($any($event.target).value)"
+          type="text"
+        />
+        <button
+          mat-button
+          *ngIf="searchInput.value"
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="onClickClose()"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </form>
+    <mat-table [dataSource]="dataSource" class="table-size">
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.name }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="emailId">
+        <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.emailId }}</mat-cell>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="meetLink">
+        <mat-header-cell *matHeaderCellDef>Meeting Link</mat-header-cell>
+        <mat-cell *matCellDef="let element"
+          ><button
+            mat-button
+            class="add-btn-2"
+            (click)="openMeet(element.meetLink)"
+          >
+            {{ element.meetLink }}
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="timing">
+        <mat-header-cell *matHeaderCellDef>Date and Time</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{ element.timing | date: "medium" }}
+        </mat-cell>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{ element.status }}
+        </mat-cell>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="view">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button
+            class="mat-btn"
+            mat-fab
+            mat-raised-button
+            aria-label="Example icon-button with a pageview icon"
+          >
+            <mat-icon
+              matTooltip="View"
+              (click)="onClickViewCandidate(element.candidateId)"
+              >pageview</mat-icon
+            ></button
+          >&nbsp;&nbsp;&nbsp;
+          <button
+            class="mat-btn"
+            mat-fab
+            mat-raised-button
+            aria-label="Example icon-button with a mode_edit icon"
+          >
+            <mat-icon matTooltip="Edit" (click)="onClickEditCandidate(element)"
+              >mode_edit</mat-icon
+            >
+          </button>
+        </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+
+    <mat-paginator
+      (page)="onClickPaginator($event)"
+      [length]="length"
+      [pageSize]="pageSize"
+      [pageSizeOptions]="pageSizeOptions"
+      [showFirstLastButtons]="true"
+    >
+    </mat-paginator>
+    <br /><br />
+    <div class="add-btn">
+      <button
+        mat-fab
+        mat-raised-button
+        class="add-btn-1"
+        (click)="onClickAddCandidate()"
+      >
+        <mat-icon matTooltip="Add Candidate">add</mat-icon>
+      </button>
+      &nbsp;
+      <button
+        mat-fab
+        mat-raised-button
+        class="add-btn-1"
+        (click)="onClickAnalytics()"
+      >
+        <mat-icon matTooltip="Graph Analysis">insights</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

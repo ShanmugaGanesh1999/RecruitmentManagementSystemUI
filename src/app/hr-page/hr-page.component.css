@@ -1,0 +1,106 @@
+table {
+  width: 100%;
+}
+
+.heading {
+  margin-left: 380px;
+  padding-top: 50px;
+  color: #55b4c2;
+  font-family: revert;
+  font-weight: 1000;
+  font-size: 40px;
+  text-shadow: 2px 2px 2px black;
+}
+
+.add-btn-1 {
+  background-color: #0e3a45;
+  margin-left: 50px;
+  color: #ccdbcc;
+  border-width: revert;
+}
+
+.add-btn-2 {
+  background-color: #3eb4cf;
+  color: #ccdbcc;
+  border-width: revert;
+}
+
+mat-header-cell {
+  background-color: #c9d8cf;
+  font-size: 17px;
+  color: #0e3a45;
+}
+
+mat-table {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+  opacity: 0.7;
+}
+
+.table-size {
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 10px;
+}
+
+.logout {
+  margin-left: 950px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.mat-toolbar {
+  font: 500 26px arial;
+  letter-spacing: normal;
+  margin: 0;
+  background-color: #0e3a45;
+  position: fixed;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+
+.mat-btn {
+  background-color: #3eb4cf;
+  margin: 5px;
+  margin-left: 5px;
+  margin-right: 25px;
+}
+
+.add-btn {
+  text-align: center;
+}
+
+.material-icons {
+  font-size: 22px;
+  color: #ccdbcc;
+}
+
+.content {
+  padding-top: 40px;
+}
+
+.body {
+  background-image: url("../../assets/0-5801_4k-wallpapers-phone-is-4k-wallpaper-yodobi-data.jpg");
+  background-position: 100% 100%;
+  background-size: cover;
+}
+
+.mat-row:hover {
+  background-color: rgb(100, 94, 94);
+}
+
+.span-logout {
+  cursor: pointer;
+}
+
+.search-input {
+  margin-left: 1115px;
+}
+
+:host ::ng-deep.mat-paginator .mat-paginator-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap-reverse;
+  width: 96%;
+}
+
+.mat-paginator {
+  background: #0000;
+}

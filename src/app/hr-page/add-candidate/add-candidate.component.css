@@ -1,0 +1,81 @@
+.h1-style {
+  color: rgb(244, 244, 247);
+  font-size: 30px;
+  margin-left: 200px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+mat-form-field {
+  color: rgb(250, 250, 252);
+  width: 270px;
+}
+
+.example-container {
+  width: 600px;
+  margin: auto;
+  padding: 2%;
+  height: 600px;
+}
+
+::ng-deep.main-background mat-dialog-container {
+  background: linear-gradient(0deg, #2d7c88, #2d7c88), no-repeat center !important;
+  padding: 0px !important;
+}
+
+.main-background {
+  padding: 30px;
+}
+
+.ml-2 {
+  margin-left: 2%;
+}
+
+.btn {
+  background-color: #0e3a45;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 29%;
+  padding: 10px 32px;
+  border-radius: 5px;
+  box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
+    0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+}
+
+.btn1 {
+  background-color: #0e3a45;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  padding: 10px 32px;
+  border-radius: 5px;
+  box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
+    0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+}
+
+.btn2 {
+  color: #ccdbcc;
+  background-color: #0e3a45;
+}
+
+input[type="file"] {
+  position: absolute;
+  z-index: -1;
+  top: 10px;
+  left: 8px;
+  font-size: 17px;
+  color: #b8b8b8;
+}
+.button-wrap {
+  position: relative;
+}
+
+.upload{
+  margin-top: 10px !important;
+}

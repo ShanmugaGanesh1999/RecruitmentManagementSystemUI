@@ -1,0 +1,164 @@
+<section class="main-background">
+  <div class="example-container">
+    <form [formGroup]="addCandidateForm">
+      <mat-card-header>
+        <mat-card-title class="h1-style">{{isEdit ? "Edit" : "Add"}} Candidate</mat-card-title>
+      </mat-card-header>
+      <br />
+      <mat-form-field appearance="outline">
+        <mat-label>Candidate Name</mat-label>
+        <input matInput placeholder="Enter Candidate Name" formControlName="cname" type="text" required />
+      </mat-form-field>
+      <!-- <mat-form-field appearance="outline" class="ml-2">
+        <mat-label>Interviewers Name</mat-label>
+        <mat-select formControlName="interviewers" required multiple>
+          <mat-select-trigger>
+            {{ interviewers.value ? interviewers.value[0] : "" }}
+            <span
+              *ngIf="interviewers.value?.length > 1"
+              class="example-additional-selection"
+            >
+              (+{{ interviewers.value.length - 1 }}
+              {{ interviewers.value?.length === 2 ? "other" : "others" }})
+            </span>
+          </mat-select-trigger>
+          <mat-option
+            *ngFor="let interviewers of interviewersList"
+            [value]="interviewers"
+            >{{ interviewers }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field> -->
+      <mat-form-field appearance="outline" class="ml-2">
+        <mat-label>Candidate Email</mat-label>
+        <input matInput placeholder="Enter Candidate Email Address" type="text" formControlName="emailId" type="email"
+          [ngClass]="{ 'is-invalid': submitted && f.emailId.errors }" required />
+        <div *ngIf="submitted && f.emailId.errors">
+          <div *ngIf="f.emailId.errors.email">
+            Email must be a valid email address
+          </div>
+        </div>
+      </mat-form-field><br />
+      <mat-form-field appearance="outline" style="width: 550px">
+        <mat-label>Interviewers Email</mat-label>
+        <mat-select formControlName="interviewersEmailId" required multiple *ngIf="isEdit===false">
+          <mat-select-trigger>
+            {{ interviewersEmailId.value ? interviewersEmailId.value[0] : "" }}
+            <span *ngIf="interviewersEmailId.value?.length > 1" class="example-additional-selection">
+              (+{{ interviewersEmailId.value.length - 1 }}
+              {{
+                interviewersEmailId.value?.length === 2 ? "other" : "others"
+              }})
+            </span>
+          </mat-select-trigger>
+          <mat-option *ngFor="let interviewersEmailId of interviewersEmailIdList" [value]="interviewersEmailId">
+            {{ interviewersEmailId }}</mat-option>
+        </mat-select>
+        <mat-select formControlName="interviewersEmailId" multiple *ngIf="isEdit===true" [(ngModel)]="selected">
+          <mat-select-trigger>
+            {{ interviewersEmailId.value ? interviewersEmailId.value[0] : "" }}
+            <span *ngIf="interviewersEmailId.value?.length > 1" class="example-additional-selection">
+              (+{{ interviewersEmailId.value.length - 1 }}
+              {{
+                interviewersEmailId.value?.length === 2 ? "other" : "others"
+              }})
+            </span>
+          </mat-select-trigger>
+          <mat-option *ngFor="let interviewersEmailId of interviewersEmailIdList;index as i"
+            [value]="interviewersEmailId">
+            <mat-checkbox>{{interviewersEmailId}}</mat-checkbox>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="outline">
+        <mat-label>Mobile Number</mat-label>
+        <input matInput formControlName="mobileNo" type="number" pattern="^[6789]\d{9}$" minlength="10" maxlength="10"
+          placeholder="Enter Mobile Number" required />
+        <div *ngIf="f.mobileNo.touched && f.mobileNo.errors">
+          <app-alert>
+            Mobile Number that must satisfy the following condition:<br />1.
+            must contain 10 digits<br />2. must starts with 6, 7, 8,
+            9</app-alert>
+        </div>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="ml-2">
+        <mat-label>Meeting Link</mat-label>
+        <input matInput placeholder="Enter Meeting Link" formControlName="meetLink" type="text" required />
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="outline">
+        <mat-label>Organization</mat-label>
+        <input matInput placeholder="Enter Organization" formControlName="organization" type="text" required />
+      </mat-form-field>&nbsp;&nbsp;
+      <mat-form-field appearance="outline">
+        <mat-label>Meeting Date</mat-label>
+        <input matInput placeholder="Enter Meeting Date" formControlName="date" type="date" required />
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="outline">
+        <mat-label>Domain</mat-label>
+        <input matInput placeholder="Enter Domain" formControlName="domain" type="text" required />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="ml-2">
+        <mat-label>Meeting Time</mat-label>
+        <input matInput placeholder="Enter Meeting Time" formControlName="time" type="time" required />
+      </mat-form-field><br />
+      <!-- <mat-file-upload
+          (change)="onChange($event)"
+          [labelText]="'Attach Candidate Resume'"
+          [selectButtonText]="'Choose File'"
+          [uploadButtonText]="'Upload'"
+          ngDefaultControl
+          formControlName="requiredFile"
+          type="file"
+          required
+        ></mat-file-upload> -->
+      <a class="button-wrap">
+        <label class="btn1" for="upload">Upload Resume</label>
+        <input id="upload" (change)="onChange($event)" type="file" />&nbsp;
+      </a>
+      <div *ngIf="isEdit===false" class="upload">
+        <a *ngIf="file; else selectFile">
+          {{ file.name }}<br />
+          <button (click)="onUpload()" class="btn">Upload</button>
+        </a>
+        <ng-template #selectFile style="margin-left: 15px">&nbsp;&nbsp;No file chosen
+        </ng-template>
+        <a *ngIf="success; else fileRequire">
+          <h3 style="margin-bottom: -30px">Successfully uploaded</h3>
+        </a>
+        <ng-template #fileRequire>&nbsp;&nbsp;File required *</ng-template>
+      </div>
+      <div *ngIf="isEdit===true" class="upload">
+        <a *ngIf="file">
+          {{ file.name }}<br />
+          <button (click)="onUpload();click=!click" class="btn">Upload</button>
+        </a>
+        <a *ngIf="success">
+          <h3 style="margin-bottom: -30px">Successfully uploaded</h3>
+        </a>
+      </div>
+      <br>
+
+      <mat-grid-list cols="3" rowHeight="100px">
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <button mat-fab mat-raised-button mat-dialog-close class="btn2" *ngIf="isEdit===true"
+            (click)="onClickUpdateCandidate()">
+            <mat-icon matTooltip="Update Candidate">fact_check</mat-icon>
+          </button>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <button mat-fab mat-raised-button mat-dialog-close class="btn2">
+            <mat-icon matTooltip="Close">highlight_off</mat-icon>
+          </button>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1" *ngIf='saveBtn==true'>
+          <button mat-fab mat-raised-button mat-dialog-close class="btn2" (click)="onClickSave()">
+            <mat-icon matTooltip="Save">done_all</mat-icon>
+          </button>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </form>
+  </div>
+</section>
